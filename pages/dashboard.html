@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="داشبورد آموزشی زبان‌آموزان داریا">
+  <title>داشبورد آموزشی | داریا</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Estedad:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  <script defer src="../assets/js/dashboard.js"></script>
+</head>
+<body class="dashboard-page">
+  <div class="noise"></div>
+
+  <header class="dashboard-header">
+    <a class="brand" href="../index.html" aria-label="بازگشت به صفحه اصلی داریا"><span class="brand-mark">د</span><span>داریا<span class="brand-dot">.</span></span></a>
+    <nav class="dashboard-nav" aria-label="ناوبری داشبورد">
+      <a href="#learning">یادگیری من</a>
+      <a href="#leitner">جعبه لایتنر</a>
+      <a href="#audio-practice">تمرین شنیداری</a>
+      <a href="#speech-practice">تمرین تلفظ</a>
+      <a href="#certificate">مدرک دوره</a>
+    </nav>
+    <div class="dashboard-header-actions">
+      <button class="dashboard-theme-toggle" id="globalThemeToggle" type="button" aria-label="تغییر حالت رنگی"><span class="sun">☼</span><span class="moon">◐</span></button>
+      <a class="dashboard-home-link" href="../index.html">صفحه اصلی</a>
+    </div>
+  </header>
+
+  <main class="dashboard-main">
+    <section class="dashboard-welcome" aria-labelledby="welcomeTitle">
+      <div>
+        <span class="dashboard-kicker"><span class="status-dot"></span> فضای یادگیری شخصی تو</span>
+        <h1 id="welcomeTitle">سلام <span id="studentName">زبان‌آموز</span>، آماده‌ای ادامه بدهی؟</h1>
+        <p>امروز فقط یک تمرین کوتاه کافی است تا یک قدم به مکالمهٔ روان‌تر نزدیک شوی.</p>
+      </div>
+      <div class="streak-card" aria-label="رکورد تمرین امروز">
+        <span class="streak-icon" aria-hidden="true">✦</span>
+        <div><strong id="streakDays">۰ روز</strong><small id="streakCaption">امروز شروع کن</small></div>
+      </div>
+    </section>
+
+    <section class="placement-banner" id="placementBanner" aria-live="polite">
+      <span class="placement-icon" aria-hidden="true">✦</span>
+      <p id="placementText">برای دریافت پیشنهاد دقیق‌تر، آزمون تعیین سطح را کامل کن.</p>
+      <a class="placement-action" id="placementAction" href="placement-test.html">شروع آزمون <span>↗</span></a>
+    </section>
+
+    <section class="learning-layout" id="learning" aria-labelledby="learningTitle">
+      <div class="learning-content">
+        <div class="section-heading-dashboard">
+          <div><span class="dashboard-kicker">درس امروز</span><h2 id="learningTitle">مکالمه در موقعیت‌های واقعی</h2></div>
+          <span class="lesson-label">درس ۰۴ از ۱۲</span>
+        </div>
+
+        <div class="video-stage" id="videoStage" aria-label="جایگاه ویدیو آموزشی">
+          <div class="video-orb video-orb-one"></div><div class="video-orb video-orb-two"></div>
+          <div class="video-topline"><span><i class="record-dot"></i> جلسهٔ آموزشی داریا</span><span id="lessonClock">۱۲:۳۴</span></div>
+          <button class="video-play-button" id="videoPlayButton" type="button" aria-label="پخش پیش‌نمایش ویدیو"><span id="videoPlayIcon">▶</span></button>
+          <div class="video-reveal" id="videoReveal"><span class="video-reveal-icon" aria-hidden="true">▣</span><strong>ویدیو آموزشی شما در این بخش قرار می‌گیرد</strong><small>با شروع پخش، روند درس به‌صورت خودکار ثبت می‌شود.</small></div>
+          <div class="video-bottomline"><span>Speaking in everyday situations</span><span class="video-live-status" id="videoLiveStatus">آمادهٔ پخش</span></div>
+        </div>
+
+        <div class="video-tools" aria-label="کنترل‌های ویدیو">
+          <div class="speed-control"><span>سرعت پخش</span><div class="speed-buttons" id="speedButtons"><button type="button" data-speed="0.75">۰.۷۵×</button><button class="is-selected" type="button" data-speed="1">۱×</button><button type="button" data-speed="1.5">۱.۵×</button></div></div>
+          <button class="video-mode-button" id="videoModeButton" type="button" aria-pressed="false"><span aria-hidden="true">☼</span> تغییر حالت شب/روز ویدیو</button>
+        </div>
+
+        <section class="timestamp-notes" aria-labelledby="notesTitle">
+          <div class="notes-heading"><div><span class="dashboard-kicker">یادداشت‌برداری لحظه‌ای</span><h3 id="notesTitle">نکته را دقیقاً در همان لحظه ثبت کن</h3></div><span class="timestamp-chip" id="noteTimestamp">۱۲:۳۴</span></div>
+          <div class="note-composer"><label class="sr-only" for="noteInput">یادداشت جدید</label><textarea id="noteInput" rows="2" placeholder="مثلاً: عبارت I’d rather را در گفت‌وگوهای کاری تمرین کنم."></textarea><button class="dashboard-primary-button" id="saveNoteButton" type="button">افزودن یادداشت <span>↙</span></button></div>
+          <ul class="notes-list" id="notesList" aria-live="polite"></ul>
+        </section>
+      </div>
+
+      <aside class="progress-panel" aria-labelledby="progressTitle">
+        <span class="dashboard-kicker">مسیر آموزشی تو</span><h2 id="progressTitle">پیشرفت این هفته</h2>
+        <div class="progress-total"><div class="progress-ring large-ring" data-progress-key="overall" style="--progress:0%"><span><b id="overallProgressValue">۰٪</b><small>کل مسیر</small></span></div><p id="overallProgressCopy">فعالیت‌های تو هنوز ثبت نشده‌اند؛ با یک تمرین کوتاه شروع کن.</p></div>
+        <div class="progress-courses">
+          <div class="progress-course"><div class="progress-ring" data-progress-key="conversation" style="--progress:0%"><span id="conversationProgressValue">۰٪</span></div><div><strong>مکالمهٔ روزمره</strong><small id="conversationProgressCopy">بر اساس زمان ویدیو و تمرین چت</small></div></div>
+          <div class="progress-course"><div class="progress-ring warm" data-progress-key="grammar" style="--progress:0%"><span id="grammarProgressValue">۰٪</span></div><div><strong>گرامر کاربردی</strong><small id="grammarProgressCopy">بر اساس یادداشت‌ها و مرور واژه‌ها</small></div></div>
+          <div class="progress-course"><div class="progress-ring cool" data-progress-key="audio" style="--progress:0%"><span id="audioProgressValue">۰٪</span></div><div><strong>شنیدار و تلفظ</strong><small id="audioProgressCopy">بر اساس تمرین صوتی و ضبط تلفظ</small></div></div>
+        </div>
+        <a class="progress-link" href="#leitner">مرور امروز را شروع کن <span>←</span></a>
+      </aside>
+    </section>
+
+    <section class="activity-section" id="activity" aria-labelledby="activityTitle">
+      <div class="section-heading-dashboard">
+        <div><span class="dashboard-kicker">زنجیره تمرین</span><h2 id="activityTitle">هر روز یک مربع سبزتر.</h2></div>
+        <span class="activity-range" id="activityRange">۷۰ روز اخیر</span>
+      </div>
+      <div class="activity-layout">
+        <section class="activity-card" aria-label="تقویم فعالیت روزانه">
+          <div class="activity-card-top"><span>فعالیت روزانه</span><strong id="activityTotal">۰ روز فعال</strong></div>
+          <div class="activity-map-wrap">
+            <div class="activity-weekdays" aria-hidden="true"><span>ش</span><span>ی</span><span>د</span><span>س</span><span>چ</span><span>پ</span><span>ج</span></div>
+            <div class="activity-grid" id="activityGrid" role="grid" aria-label="فعالیت ۷۰ روز اخیر"></div>
+          </div>
+          <div class="activity-legend"><span>کم</span><i class="heat-level level-0"></i><i class="heat-level level-1"></i><i class="heat-level level-2"></i><i class="heat-level level-3"></i><i class="heat-level level-4"></i><span>زیاد</span></div>
+        </section>
+        <aside class="activity-summary" aria-label="خلاصهٔ فعالیت">
+          <span class="dashboard-kicker">بازخورد زنده</span><h3 id="activitySummaryTitle">امروز را به زنجیره‌ات اضافه کن.</h3>
+          <p id="activitySummaryText">هر یادداشت، مرور لغت، ضبط صدا یا پیام چت یک خانه از این تقویم را روشن می‌کند.</p>
+          <div class="activity-stat-row"><div><strong id="activityCount">۰</strong><span>روز فعال</span></div><div><strong id="activityActions">۰</strong><span>تمرین ثبت‌شده</span></div></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="speech-section" id="speech-practice" aria-labelledby="speechTitle">
+      <div class="section-heading-dashboard speech-heading">
+        <div><span class="dashboard-kicker">آزمایشگاه تلفظ</span><h2 id="speechTitle">صدای خودت را ضبط کن و دوباره گوش بده.</h2></div>
+        <span class="recording-badge">کلاینت‌ساید · بدون سرور</span>
+      </div>
+      <p class="speech-sentence">جملهٔ نمونه: <strong dir="ltr">“Hello! My name is …”</strong></p>
+      <div class="speech-controls">
+        <button class="speech-start" id="startRecBtn" type="button">🎙️ شروع ضبط صدا</button>
+        <button class="speech-stop" id="stopRecBtn" type="button" disabled>⏹️ توقف ضبط صدا</button>
+        <button class="speech-delete" id="deleteClipBtn" type="button" hidden>🗑️ حذف صدای ضبط‌شده</button>
+      </div>
+      <div class="recording-progress" aria-hidden="true"><span id="recordingProgressBar"></span></div>
+      <div class="speech-status-line"><p id="recStatus" aria-live="polite">برای شروع، اجازهٔ میکروفون را تأیید کن.</p><span id="recTimer">۰:۰۰</span></div>
+      <audio id="playback" controls hidden></audio>
+    </section>
+
+    <section class="flashcards-section" id="leitner" aria-labelledby="leitnerTitle">
+      <div class="section-heading-dashboard flashcards-heading"><div><span class="dashboard-kicker">جعبه لایتنر هوشمند</span><h2 id="leitnerTitle">لغت را ببین، بشنو و به خاطر بسپار.</h2></div><p>روی کارت کلیک کن یا کلید Space را بزن تا معنی و مثال باز شود.</p></div>
+      <details class="custom-card-details">
+        <summary>＋ افزودن کلمهٔ اختصاصی</summary>
+        <form class="custom-card-form" id="customCardForm" novalidate>
+          <label for="customWord">کلمهٔ انگلیسی<input id="customWord" type="text" dir="ltr" placeholder="مثلاً mindful" required></label>
+          <label for="customMeaning">معنی فارسی<input id="customMeaning" type="text" placeholder="مثلاً آگاه و متمرکز" required></label>
+          <label for="customExample">مثال انگلیسی<input id="customExample" type="text" dir="ltr" placeholder="Stay mindful during the conversation." required></label>
+          <button class="dashboard-primary-button" id="addCustomCardButton" type="submit">افزودن به جعبه <span>＋</span></button>
+          <p class="custom-card-status" id="customCardStatus" aria-live="polite"></p>
+        </form>
+      </details>
+      <div class="leitner-layout">
+        <div class="flashcard-column">
+          <div class="flashcard-scene">
+            <article class="flashcard" id="flashcard" tabindex="0" aria-label="کارت واژگان؛ با کلیک یا Space بچرخانید">
+              <div class="flashcard-inner">
+                <section class="flashcard-face flashcard-front">
+                  <div class="flashcard-meta"><span id="cardCount">۱ از ۴</span><span class="box-label" id="cardBoxLabel">جعبه ۱</span></div>
+                  <button class="speak-button" id="speakCardButton" type="button" aria-label="شنیدن تلفظ کلمه"><span aria-hidden="true">⌁</span> تلفظ</button>
+                  <strong class="flashcard-word" id="cardWord" dir="ltr">resilient</strong>
+                  <p>برای دیدن معنی، کارت را برگردان.</p>
+                  <span class="flip-hint" aria-hidden="true">↻</span>
+                </section>
+                <section class="flashcard-face flashcard-back">
+                  <div class="flashcard-meta"><span>معنی و مثال</span><span class="box-label" id="cardBoxLabelBack">جعبه ۱</span></div>
+                  <strong class="flashcard-meaning" id="cardMeaning">تاب‌آور، انعطاف‌پذیر</strong>
+                  <p class="flashcard-example" id="cardExample" dir="ltr">She is resilient and learns from every challenge.</p>
+                  <span class="flashcard-translation" id="cardTranslation">او تاب‌آور است و از هر چالش یاد می‌گیرد.</span>
+                </section>
+              </div>
+            </article>
+          </div>
+          <div class="flashcard-actions"><button class="review-button" id="reviewCardButton" type="button">مرور مجدد <span>↻</span></button><button class="know-button" id="knowCardButton" type="button">بلدم <span>✓</span></button></div>
+        </div>
+        <aside class="leitner-status" aria-label="وضعیت الگوریتم لایتنر">
+          <span class="dashboard-kicker">وضعیت مرور</span><h3>هر «بلدم» یک جعبه جلوتر</h3><p id="leitnerDescription">این کارت در جعبهٔ ۱ است؛ مرور دوباره باعث می‌شود دوباره زودتر آن را ببینی.</p>
+          <div class="leitner-boxes" id="leitnerBoxes" aria-label="پنج جعبه لایتنر"></div>
+          <div class="leitner-summary"><strong id="knownWordsCount">۰</strong><span>واژهٔ تثبیت‌شده</span></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="audio-section" id="audio-practice" aria-labelledby="audioTitle">
+      <div class="section-heading-dashboard"><div><span class="dashboard-kicker">تمرین شنیداری</span><h2 id="audioTitle">بشنو، بخوان و با ریتم جمله همراه شو.</h2></div><span class="lesson-label">فایل تمرین مکالمه</span></div>
+      <div class="audio-practice-layout">
+        <section class="audio-player" id="audioPlayer" aria-label="پلیر تمرین صوتی">
+          <div class="audio-player-top"><div><span class="audio-file-badge">AUDIO PRACTICE</span><h3>Conversation confidence</h3><p>تمرین مکالمه — حدود ۳۲ ثانیه</p></div><button class="audio-play-button" id="audioPlayButton" type="button" aria-label="پخش تمرین صوتی"><span id="audioPlayIcon">▶</span></button></div>
+          <div class="waveform" id="waveform" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="audio-timeline"><input id="audioTimeline" type="range" min="0" max="32" value="0" aria-label="موقعیت تمرین صوتی"><div><span id="audioCurrent">۰:۰۰</span><span>۰:۳۲</span></div></div>
+        </section>
+        <section class="transcript-panel" aria-labelledby="transcriptTitle"><div class="transcript-heading"><h3 id="transcriptTitle">متن هم‌زمان</h3><span>روی هر بخش بزن تا از همان‌جا شروع شود.</span></div><p class="transcript-text" id="transcriptText" lang="en" dir="ltr"></p></section>
+      </div>
+    </section>
+
+    <section class="certificate-section" id="certificate" aria-labelledby="certificateTitle">
+      <div class="section-heading-dashboard certificate-heading"><div><span class="dashboard-kicker">دریافت مدرک دوره</span><h2 id="certificateTitle">گواهی پیشرفتت را با نام خودت بساز.</h2></div><p>مدرک در همین مرورگر ساخته می‌شود و هیچ اطلاعاتی به سرور ارسال نمی‌شود.</p></div>
+      <div class="certificate-layout">
+        <section class="certificate-controls" aria-label="تنظیمات گواهی‌نامه">
+          <label for="certificateName">نام درج‌شده روی گواهی‌نامه</label>
+          <input id="certificateName" type="text" maxlength="50" placeholder="مثلاً امیرعلی رضایی" autocomplete="name">
+          <button class="dashboard-primary-button certificate-generate" id="generateCertificateButton" type="button">ساخت گواهی‌نامه <span>✦</span></button>
+          <div class="certificate-downloads"><button id="downloadPngButton" type="button" disabled>دانلود PNG</button><button id="downloadPdfButton" type="button" disabled>دانلود PDF</button></div>
+          <button class="report-download-button" id="downloadReportButton" type="button">دانلود کارنامهٔ پیشرفت</button>
+          <p class="report-status" id="reportStatus" aria-live="polite"></p>
+          <p class="certificate-note">برای PDF از دانلود مستقیم استفاده می‌شود؛ اگر کتابخانه در دسترس نباشد، پنجرهٔ چاپ مرورگر باز خواهد شد.</p>
+        </section>
+        <figure class="certificate-preview"><canvas id="certificateCanvas" width="1600" height="1000" aria-label="پیش‌نمایش گواهی‌نامه داریا"></canvas><figcaption>پیش‌نمایش گواهی‌نامهٔ شخصی شما</figcaption></figure>
+      </div>
+    </section>
+  </main>
+
+  <aside class="chat-widget" id="chatWidget">
+    <button class="chat-launcher" id="chatLauncher" type="button" aria-expanded="false" aria-controls="chatPanel"><span class="chat-launcher-icon" aria-hidden="true">✦</span><span>یار تمرین</span><span class="chat-unread" id="chatUnread">۱</span></button>
+    <section class="chat-panel" id="chatPanel" hidden aria-label="چت‌بات تمرین مکالمه">
+      <header class="chat-header"><div><span class="chat-status-dot"></span><strong>یار مکالمهٔ داریا</strong><small>سناریو: سفارش در کافه</small></div><button class="chat-close" id="chatCloseButton" type="button" aria-label="بستن چت">×</button></header>
+      <div class="chat-messages" id="chatMessages" role="log" aria-live="polite" aria-relevant="additions"></div>
+      <div class="quick-replies" id="quickReplies" aria-label="پاسخ‌های سریع"></div>
+      <form class="chat-form" id="chatForm"><label class="sr-only" for="chatInput">پیام شما</label><input id="chatInput" type="text" autocomplete="off" placeholder="یک پاسخ انگلیسی بنویس…" required><button type="submit" aria-label="ارسال پیام">↗</button></form>
+    </section>
+  </aside>
+
+  <footer class="dashboard-footer"><a class="brand" href="../index.html"><span class="brand-mark">د</span><span>داریا<span class="brand-dot">.</span></span></a><span>یادگیری کوچک امروز، مکالمهٔ بزرگ فردا.</span></footer>
+</body>
+</html>
