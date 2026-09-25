@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>پرداخت آزمایشی | داریا</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Estedad:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css"><link rel="stylesheet" href="../assets/css/payment.css">
+</head>
+<body class="payment-page">
+  <main class="payment-shell">
+    <header class="payment-header"><a class="brand" href="../index.html"><span class="brand-mark">د</span><span>داریا<span class="brand-dot">.</span></span></a><div class="payment-actions"><span class="payment-safe">🔒 محیط آزمایشی</span><button class="payment-theme-toggle" id="payment-theme-toggle" aria-label="تغییر حالت رنگی"><span class="sun">☼</span><span class="moon">◐</span></button></div></header>
+    <section class="payment-grid">
+      <article class="payment-card checkout-card" id="checkout-card">
+        <span class="section-kicker">تکمیل ثبت‌نام</span><h1>پرداخت <em>آزمایشی</em></h1>
+        <p>این صفحه نمونه است؛ هیچ پرداخت واقعی انجام نمی‌شود و اطلاعات کارت ذخیره نخواهد شد.</p>
+        <div class="demo-bank-card"><div class="bank-card-top"><span>داریا Pay</span><span>●●●</span></div><div class="bank-chip"></div><strong id="card-preview">•••• •••• •••• ••••</strong><div class="bank-card-bottom"><span id="holder-preview">نام دارنده کارت</span><span id="expiry-preview">MM/YY</span></div></div><div class="payment-steps"><span class="active">۱. اطلاعات</span><i></i><span>۲. تأیید</span><i></i><span>۳. موفق</span></div>
+        <form id="payment-form" novalidate>
+          <label>نام روی کارت<input id="card-name" autocomplete="cc-name" placeholder="مثلاً سارا احمدی" required></label>
+          <label>شماره کارت<input id="card-number" inputmode="numeric" autocomplete="cc-number" maxlength="19" placeholder="۶۰۳۷-xxxx-xxxx-xxxx" required></label>
+          <div class="payment-row"><label>تاریخ انقضا<input id="expiry" inputmode="numeric" maxlength="5" placeholder="۰۵/۰۷" required></label><label>CVV2<input id="cvv" inputmode="numeric" maxlength="4" placeholder="***" required></label></div><div class="promo-row"><input id="promo-code" placeholder="کد تخفیف: DARYA10"><button type="button" id="apply-promo">اعمال</button></div><p class="promo-message" id="promo-message"></p>
+          <button class="button payment-submit" type="submit">پرداخت آزمایشی <span>↗</span></button>
+        </form><p class="payment-message" id="payment-message" aria-live="polite"></p>
+      </article>
+      <aside class="payment-card order-card"><span class="section-kicker">خلاصه سفارش</span><h2 id="order-course">دوره مکالمه با اعتماد</h2><div class="order-line"><span>نوع برگزاری</span><strong id="order-mode">آنلاین گروهی</strong></div><div class="order-line"><span>وضعیت تعیین سطح</span><strong id="placement-status">انجام نشده</strong></div><div class="order-total"><span>مبلغ قابل پرداخت</span><strong id="order-price">۲,۹۸۰,۰۰۰ تومان</strong></div><div class="order-trust"><span>✓</span> پس از پرداخت موفق، ثبت‌نام در داشبورد آزمایشی فعال می‌شود.</div></aside>
+    </section>
+  </main>
+  <script src="../assets/js/payment.js"></script>
+  <script src="../assets/js/reset.js"></script><script src="../assets/js/bilingual.js"></script>
+</body>
+</html>

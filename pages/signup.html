@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="فرم ثبت‌نام دوره‌های آموزشی داریا">
+  <title>ثبت‌نام در دوره | داریا</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Estedad:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="stylesheet" href="../assets/css/signup.css">
+</head>
+<body class="registration-page">
+  <div class="noise"></div>
+  <main class="registration-shell">
+    <header class="registration-header t-head">
+      <a class="brand" href="../index.html"><span class="brand-mark">د</span><span>داریا<span class="brand-dot">.</span></span></a>
+      <div class="registration-actions t-actions">
+        <button class="registration-theme" type="button" aria-label="تغییر حالت رنگی"><span class="sun">☼</span><span class="moon">◐</span></button>
+        <a class="registration-back" href="../index.html#courses">بازگشت به دوره‌ها <span>↗</span></a>
+      </div>
+    </header>
+
+    <div class="registration-layout">
+      <section class="registration-intro" aria-labelledby="registration-title">
+        <span class="section-kicker">ثبت‌نام آزمایشی داریا</span>
+        <h1 id="registration-title">مسیر یادگیری تو<br><em>از اینجا شروع می‌شود.</em></h1>
+        <p>اطلاعاتت را وارد کن و دوره مناسب خودت را انتخاب کن. بعد از ثبت درخواست، به صفحه پرداخت آزمایشی می‌روی.</p>
+        <div class="registration-steps" aria-label="مراحل ثبت‌نام">
+          <div><span>۰۱</span><strong>انتخاب دوره</strong><small>دوره‌ای هماهنگ با هدف تو</small></div>
+          <div><span>۰۲</span><strong>ثبت اطلاعات</strong><small>فقط نام و شماره تماس</small></div>
+          <div><span>۰۳</span><strong>تکمیل ثبت‌نام</strong><small>پرداخت آزمایشی و ورود به داشبورد</small></div>
+        </div>
+      </section>
+
+      <section class="registration-card" aria-labelledby="form-title">
+        <span class="registration-card-icon">✦</span>
+        <span class="section-kicker">شروع یادگیری</span>
+        <h2 id="form-title">فرم ثبت‌نام</h2>
+        <p>چند قدم کوتاه تا شروع مسیرت باقی مانده است.</p>
+        <form id="signup-form" class="signup-form" data-payment-path="payment.html" novalidate>
+          <label for="full-name">نام و نام خانوادگی
+            <input id="full-name" name="full-name" type="text" autocomplete="name" placeholder="مثلاً سارا احمدی" required>
+          </label>
+          <label for="phone">شماره موبایل
+            <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="۰۹۱۲۱۲۳۴۵۶۷" required>
+          </label>
+          <label for="course">نوع دوره
+            <select id="course" name="course" required>
+              <option value="">انتخاب دوره</option>
+              <option value="conversation">دوره آنلاین گروهی</option>
+              <option value="club">دوره حضوری</option>
+              <option value="private">کلاس خصوصی</option>
+            </select>
+          </label>
+          <button class="button registration-submit" type="submit">ثبت درخواست <span>↗</span></button>
+        </form>
+        <p id="form-message" class="form-message" aria-live="polite"></p>
+        <p class="registration-note">این نسخه آزمایشی است و پرداخت واقعی انجام نمی‌شود.</p>
+      </section>
+    </div>
+  </main>
+  <script src="../assets/js/signup.js"></script>
+  <script src="../assets/js/reset.js"></script>
+  <script src="../assets/js/bilingual.js"></script>
+</body>
+</html>
