@@ -1,0 +1,28 @@
+﻿<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/brand.svg">
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>پیش‌نمایش ثبت‌نام | داریا</title>
+    <link rel="stylesheet" href="../assets/css/site.css">
+  <script defer src="../assets/js/site.js"></script>
+</head>
+<body class="payment-page" data-page="payment">
+  <main class="payment-shell">
+    <header class="payment-header"><a class="brand" href="../index.html"><span class="brand-mark"><img src="../assets/icons/brand.svg" alt="" width="35" height="35"></span><span>داریا<span class="brand-dot">.</span></span></a><div class="payment-actions"><span class="payment-safe">✦ محیط آزمایشی</span><button class="payment-theme-toggle" id="payment-theme-toggle" aria-label="تغییر حالت رنگی"><span class="sun">☼</span><span class="moon">◐</span></button></div></header>
+    <section class="payment-grid">
+      <article class="payment-card checkout-card" id="checkout-card">
+        <span class="section-kicker">گام نمایشی ثبت‌نام</span><h1 data-no-translate><span class="preview-title-fa">پیش‌نمایش <em>ثبت‌نام</em></span><span class="preview-title-en" lang="en">Registration <em>preview</em></span></h1>
+        <p>این مرحله فقط یک شبیه‌سازی است. اطلاعات بانکی لازم نیست و هیچ پولی جابه‌جا نمی‌شود.</p>
+        <div class="demo-preview"><span class="demo-preview-mark" aria-hidden="true">✦</span><div><span class="demo-preview-kicker">داریا / پیش‌نمایش</span><strong>یک قدم تا شروع یادگیری</strong><small>بدون ورود اطلاعات بانکی</small></div></div>
+        <div class="payment-steps"><span class="active">۱. درخواست</span><i></i><span>۲. پیش‌نمایش</span><i></i><span>۳. داشبورد</span></div>
+        <form id="payment-form" novalidate>
+          <label for="promo-code">کد تخفیف</label><div class="promo-row"><input id="promo-code" placeholder="کد تخفیف: DARYA10"><button type="button" id="apply-promo">اعمال</button></div><p class="promo-message" id="promo-message"></p>
+          <button class="button payment-submit" type="submit">تکمیل پیش‌نمایش <span>↗</span></button>
+        </form><p class="payment-message" id="payment-message" aria-live="polite"></p>
+      </article>
+      <aside class="payment-card order-card"><span class="section-kicker">خلاصه سفارش</span><h2 id="order-course">مکالمه فشرده آیلتس</h2><div class="order-line"><span>نوع برگزاری</span><strong id="order-mode">آنلاین گروهی</strong></div><div class="order-line"><span>وضعیت تعیین سطح</span><strong id="placement-status">انجام نشده</strong></div><div class="order-total"><span>هزینهٔ دوره</span><strong id="order-price">۲,۹۸۰,۰۰۰ تومان</strong></div><div class="order-trust"><span>✓</span> این پیش‌نمایش پولی دریافت نمی‌کند. درخواست ثبت‌نام جداگانه برای هماهنگی بررسی می‌شود.</div></aside>
+    </section>
+  </main>
+  </body>
+</html>
